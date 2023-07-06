@@ -1,5 +1,5 @@
-#ifndef _SURFS_UP_
-#define _SURFS_UP_
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 struct wave
 {
@@ -8,5 +8,6 @@ struct wave
 };
 
 int _printf(const char *format, ...);
+int _putchar(char);
 
 #endif
