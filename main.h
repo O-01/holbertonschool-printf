@@ -3,8 +3,8 @@
 
 struct wave
 {
-	char *spec
-	void (*func)(
+	char *spec;
+	void (*func)(void);
 };
 
 int _printf(const char *format, ...);
