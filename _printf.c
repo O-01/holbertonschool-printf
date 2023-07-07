@@ -8,10 +8,8 @@
 
 int _printf(const char *frmt, ...)
 {
-	va_list inpt;
-	int i = 0;
+	if (format != NULL) /*checks if format is null*/
 
-	va_start(inpt, frmt);
-
-	for (
+	{
+		
 }
