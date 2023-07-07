@@ -31,7 +31,7 @@ if (frmt) /*checks if format is null*/
 				}
 				else
 				{
-					get_func(frmt[i])(args);
+					get_func(*(frmt))(args);
 					if (m)
 						count += m(args);
 					else
