@@ -43,11 +43,12 @@ void s_printer(va_list s)
  *
  *
  */
-/*
+
 void d_printer(va_list d)
 {
+	number_pro(va_arg(d, int));
 }
-*/
+
 /**
  *
  *
@@ -56,33 +57,8 @@ void d_printer(va_list d)
 /*
 void i_printer(va_list i)
 {
-	int x = 0;
-
-	if (i)
-	{
-		for (; i[x]; x++)
-			;
-
-		if (x == 1)
-		{
-			if (i < 0 && i > -2147483648)
-			{
-				i = -(i);
-				_putchar('-');
-			}
-
-			if (i / 10)
-				i_printer(i / 10);
-
-			if (i == -2147483648)
-				_putchar((i % 10) + 64);
-
-			else
-				_putchar((i % 10) + '0');
-		}
-	}
-}
-*/
+	_putchar(i);
+	}*/
 
 /**
  *

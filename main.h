@@ -13,7 +13,7 @@ typedef struct wave wv;
 
 int _printf(const char *frmt, ...);
 int _putchar(char);
-int (*get_func(char))(char);
+void (*get_func(char *))(va_list);
 void c_printer(va_list);
 void s_printer(va_list);
 void d_printer(va_list);

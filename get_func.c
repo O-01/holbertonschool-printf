@@ -9,13 +9,13 @@
  * Return: function corresponding to input x
  */
 
-int (*get_func(char *x))(va_list)
+void (*get_func(char *x))(va_list)
 {
 	wv det[] = {
 		{"c", c_printer},
 		{"s", s_printer},
-		{"d", d_printer},
-		{"i", i_printer},
+		{"d", d_printer},/*
+				   {"i", i_printer},*/
 		{NULL, NULL}
 	};
 	int i = 0;
