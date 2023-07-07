@@ -28,7 +28,6 @@ int _printf(const char *frmt, ...)
 			_putchar(frmt[i]);
 		i++;
 	}
-
 	va_end(args);
 	return (x);
 }
