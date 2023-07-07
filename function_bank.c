@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stddef.h>
+#include <stdarg.h>
 
 /**
  *
@@ -9,8 +10,10 @@
 
 void c_printer(va_list c)
 {
-	if (c != NULL)
-		_putchar(va_arg(c, char));
+	char ch = (char)va_arg(c, int);
+
+	if (ch != NULL)
+		_putchar(ch);
 }
 
 /**
@@ -26,7 +29,7 @@ void s_printer(va_list s)
 
 	str = va_arg(s, char *);
 
-	if (str != NULL)
+	if (str)
 	{
 		for (; str[x]; x++)
 			;
@@ -42,24 +45,26 @@ void s_printer(va_list s)
  *
  */
 
-void d_printer(int d)
+void d_printer(va_list d)
 {
-	if (d != NULL)
+	int dec = va_arg(d, int);
+
+	if (dec)
 	{
-		if (d < 0 && d > -2147483648)
+		if (dec < 0 && dec > -2147483648)
 		{
-			d = -(d);
+			dec = -(dec);
 			_putchar('-');
 		}
 
-		if (d / 10)
-			d_printer(d / 10);
+		if (dec / 10)
+			d_printer(dec / 10);
 
-		if (d == -2147483648)
-			_putchar((d % 10) + 64);
+		if (dec == -2147483648)
+			_putchar((dec % 10) + 64);
 
 		else
-			_putchar((d % 10) + '0');
+			_putchar((dec % 10) + '0');
 	}
 }
 
@@ -68,12 +73,12 @@ void d_printer(int d)
  *
  *
  */
-
-void i_printer(int i)
+/*
+void i_printer(va_list i)
 {
 	int x = 0;
 
-	if (i != NULL)
+	if (i)
 	{
 		for (; i[x]; x++)
 			;
@@ -97,3 +102,4 @@ void i_printer(int i)
 		}
 	}
 }
+*/
