@@ -2,9 +2,9 @@
 #include <stdarg.h>
 
 /**
- *
- *
- *
+ * c_printer - supplies char output to _printf upon %c specifier
+ * @c: input char
+ * Return: void
  */
 
 void c_printer(va_list c)
@@ -16,9 +16,9 @@ void c_printer(va_list c)
 }
 
 /**
- *
- *
- *
+ * s_printer - supplies string output to _printf upon %s specifier
+ * @s: input string
+ * Return: void
  */
 
 void s_printer(va_list s)
@@ -39,9 +39,9 @@ void s_printer(va_list s)
 }
 
 /**
- *
- *
- *
+ * d_printer - supplies output for _printf upon d specifier
+ * @d: input number
+ * Return: void
  */
 
 void d_printer(va_list d)
@@ -50,20 +50,20 @@ void d_printer(va_list d)
 }
 
 /**
- *
- *
- *
+ * i_printer - supplies output for _printf upon i specifier
+ * @i: input number
+ * Return: void
  */
-/*
+
 void i_printer(va_list i)
 {
-	_putchar(i);
-	}*/
+	number_pro(va_arg(i, int));
+}
 
 /**
- *
- *
- *
+ * number_pro - helper function to print # input recursively using _putchar
+ * @d: input number
+ * Return: void
  */
 
 void number_pro(int d)
