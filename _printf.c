@@ -11,12 +11,12 @@
 int _printf(const char *frmt, ...)
 {
 	va_list args; /*args as variable type for va_list type for va_list to access variable args*/
-	int count = 0, i; /*count keeps track of the number of chars being printed*/
-/*	int (*m)(va_list);*/
+	int count = 0, i;
+	void (*m)(va_list);
 
 	va_start (args, frmt); /*va_start macro initalize args*/
 
-	if (frmt) /*checks if format is null*/
+if (frmt) /*checks if format is null*/
 	{
 		i = 0;
 		while (frmt[i]) /*while loop iterates over chars in string until \0*/
@@ -27,16 +27,16 @@ int _printf(const char *frmt, ...)
 				{
 					count += _putchar(frmt[i]);
 			       		i += 2;
-				}/*
+				}
 				else
 				{
-					m = get_func(frmt[i + 1]);
+					m = (char)get_func(frmt[i + 1]);
 					if (m)
 						count += m(args);
 					else
 						count += _putchar(frmt[i]) + _putchar(frmt[i + 1]);
 					i += 2;
-					}*/
+				}	
 			}
 			else
 			{
