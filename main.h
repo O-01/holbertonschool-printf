@@ -9,5 +9,10 @@ struct wave
 
 int _printf(const char *format, ...);
 int _putchar(char);
-int _strlen(char *s);
+int (*get_func(char *))(char);
+void c_printer(char);
+void s_printer(char *);
+void d_printer(int);
+void i_printer(int);
+
 #endif
