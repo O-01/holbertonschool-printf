@@ -9,7 +9,7 @@
  */
 
 int _printf(const char *frmt, ...)
-{
+
 	if (frmt != NULL) /*checks if format is null*/
 
 	{	
@@ -24,34 +24,33 @@ int _printf(const char *frmt, ...)
 		{
 			if (frmt[i] == '%') /*checks if current char is % which indicates start of format spec*/
 			{
-			if (frmt[i + 1] == '%') /*if next char after % is also %, means string contains a literal %*/	
-			{
-				count += _putchar(frmt[i]);
-			       	i += 2;
-			}
-			else
-			}
-				m = get_func(frmt[i + 1]);
-				if (m) 
+				if (frmt[i + 1] == '%') /*if next char after % is also %, means string contains a literal %*/	
 				{
-					count += m(args);
+					count += _putchar(frmt[i]);
+			       		i += 2;
 				}
 				else
-				{
-					count += _putchar(frmt[i]) + _putchar(frmt[i + 1]);
 				}
-				i += 2;
-			}	
-		}
-		else
-		{
-			count += _putchar(frmt[i]);
-			i++;
+
+					m = get_func(frmt[i + 1]);
+					if (m) 
+					{
+						count += m(args);
+					}
+					else
+					{
+						count += _putchar(frmt[i]) + _putchar(frmt[i + 1]);
+					}
+					i += 2;
+				}	
+			}
+			else
+			{
+				count += _putchar(frmt[i]);
+				i++;
+			}
 		}
 	}
 	va_end(args);
 	return (count);
-	}
-
-	return (-1);
 }
