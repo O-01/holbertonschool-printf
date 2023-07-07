@@ -8,10 +8,10 @@
 
 int _printf(const char *frmt, ...)
 {
-	va_list inpt;
-	int i = 0;
+	if (format != NULL) /*checks if format is null*/
 
-	va_start(inpt, frmt);
-
-	for (
+	{	int count = 0, i; /*count keeps track of the number of chars being printed*/
+		int (*m) (va_list);
+		va_list args; /*args as variable type for va_list typefor va_list to access variable arguments*/
+		
 }
