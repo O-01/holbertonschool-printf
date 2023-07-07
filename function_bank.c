@@ -56,10 +56,10 @@ int s_printer(va_list s)
 int d_printer(va_list d)
 {
         int x = 0;
-	
+
 	if (d)
 		x = number_pro(va_arg(i, int));
-	
+
         return (x);
 }
 
@@ -72,7 +72,7 @@ int d_printer(va_list d)
 int i_printer(va_list i)
 {
 	int x = 0;
-	
+
 	if (i)
 		x = number_pro(va_arg(i, int));
 
