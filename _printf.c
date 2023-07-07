@@ -19,6 +19,11 @@ int _printf(const char *frmt, ...)
 		va_start (args, format); /*va_start macro initalize
 					   args*/
 		i = 0;
-		while (format[i] != '\0')
-		
+		while (format[i] != '\0') /*while loop iterates over
+					    chars in string until \0*/
+		{
+			if (format[i] == '%') /*checks if current char
+						is % which indicates
+						start of format spec*/
+		}
 }
