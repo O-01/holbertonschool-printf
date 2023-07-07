@@ -10,7 +10,8 @@ int _printf(const char *frmt, ...)
 {
 	if (format != NULL) /*checks if format is null*/
 
-	{	int count = 0, i; /*count keeps track of the number of
+	{	
+		int count = 0, i; /*count keeps track of the number of
 				  chars being printed*/
 		int (*m) (va_list);
 		va_list args; /*args as variable type for va_list type for va_list to access variable args*/
@@ -38,7 +39,17 @@ int _printf(const char *frmt, ...)
 					count += _putchar(format[i]) + _putchar(format[i + 1]);
 				i += 2;
 			}
-					
+		}
+		else
+		{
+			count += _putchar(format[i]);
+			i++;
+		}
+	{
+	va_end(args);
+	return (count);
+	}
 
+return (-1);
 
 }
