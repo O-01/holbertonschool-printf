@@ -9,8 +9,8 @@
  */
 
 int _printf(const char *frmt, ...)
-
-	if (frmt != NULL) /*checks if format is null*/
+{
+	if (frmt) /*checks if format is null*/
 
 	{	
 		int count = 0, i; /*count keeps track of the number of
@@ -30,7 +30,7 @@ int _printf(const char *frmt, ...)
 			       		i += 2;
 				}
 				else
-				}
+				{
 
 					m = get_func(frmt[i + 1]);
 					if (m) 
@@ -38,12 +38,10 @@ int _printf(const char *frmt, ...)
 						count += m(args);
 					}
 					else
-					{
-						count += _putchar(frmt[i]) + _putchar(frmt[i + 1]);
-					}
+						count += _putchar(frmt[i]) + _putchar(frmt[i + 1])LL:;
 					i += 2;
 				}	
-			}
+			{
 			else
 			{
 				count += _putchar(frmt[i]);
@@ -53,4 +51,5 @@ int _printf(const char *frmt, ...)
 	}
 	va_end(args);
 	return (count);
+	}
 }
