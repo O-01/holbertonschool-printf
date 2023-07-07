@@ -19,11 +19,21 @@ int _printf(const char *frmt, ...)
 		va_start (args, format); /*va_start macro initalize
 					   args*/
 		i = 0;
-		while (format[i] != '\0') /*while loop iterates over
+		while (format[i]) /*while loop iterates over
 					    chars in string until \0*/
 		{
 			if (format[i] == '%') /*checks if current char
 						is % which indicates
 						start of format spec*/
 		}
+			if (format[i + 1] == '%') /*if next char after
+						  % is also %, means
+						string contains a
+					      literal %*/	
+			{
+				count += _putchar(format[i]);
+			       	i += 2;
+			}
+			else
+			}
 }
