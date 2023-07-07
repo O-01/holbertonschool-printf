@@ -7,12 +7,18 @@
  * Return: void
  */
 
-void c_printer(va_list c)
+int c_printer(va_list c)
 {
+	int x = 0;
 	char ch = (char)va_arg(c, int);
 
 	if (ch)
+	{
 		_putchar(ch);
+		x++;
+	}
+
+	return (x);
 }
 
 /**
@@ -21,9 +27,9 @@ void c_printer(va_list c)
  * Return: void
  */
 
-void s_printer(va_list s)
+int s_printer(va_list s)
 {
-	int x, y = 0;
+	int x, y, z = 0;
 	char *str;
 
 	str = va_arg(s, char *);
@@ -34,7 +40,10 @@ void s_printer(va_list s)
 			;
 
 		for (; y < x; y++)
+		{
 			_putchar(str[y]);
+			z++;
+		}
 	}
 }
 
@@ -44,9 +53,14 @@ void s_printer(va_list s)
  * Return: void
  */
 
-void d_printer(va_list d)
+int d_printer(va_list d)
 {
-	number_pro(va_arg(d, int));
+        int x = 0;
+	
+	if (d)
+		x = number_pro(va_arg(i, int));
+	
+        return (x);
 }
 
 /**
@@ -55,9 +69,14 @@ void d_printer(va_list d)
  * Return: void
  */
 
-void i_printer(va_list i)
+int i_printer(va_list i)
 {
-	number_pro(va_arg(i, int));
+	int x = 0;
+	
+	if (i)
+		x = number_pro(va_arg(i, int));
+
+	return (x);
 }
 
 /**
@@ -66,23 +85,33 @@ void i_printer(va_list i)
  * Return: void
  */
 
-void number_pro(int d)
+int number_pro(int d)
 {
+	int x = 0;
+
 	if (d)
 	{
 		if (d < 0 && d > -2147483648)
 		{
 			d = -(d);
 			_putchar('-');
+			x++;
 		}
 
-		if (d / 10)
-			number_pro(d / 10);
-
-		if (d == -2147483648)
-			_putchar((d % 10) + 64);
-
-		else
-			_putchar((d % 10) + '0');
+		for (; d / 10; d /= 10)
+		{
+			if (d == -2147483648)
+			{
+				_putchar((d % 10) + 64);
+				x++;
+			}
+			else
+			{
+				_putchar((d % 10) + '0');
+				x++;
+			}
+		}
 	}
+
+	return (x);
 }

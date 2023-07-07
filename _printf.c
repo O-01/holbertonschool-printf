@@ -14,7 +14,7 @@ int _printf(const char *frmt, ...)
 	int count = 0, i;
 	void (*m)(va_list);
 
-	va_start (args, frmt); /*va_start macro initalize args*/
+	va_start(args, frmt); /*va_start macro initalize args*/
 
 if (frmt) /*checks if format is null*/
 	{
@@ -23,24 +23,26 @@ if (frmt) /*checks if format is null*/
 		{
 			if (frmt[i] == '%') /*checks if current char is % which indicates start of format spec*/
 			{
-				if (frmt[i + 1] == '%') /*if next char after % is also %, means string contains a literal %*/	
+				i++;
+				if (frmt[i] == '%') /*if next char after % is also %, means string contains a literal %*/	
 				{
 					count += _putchar(frmt[i]);
-			       		i += 2;
+			       		i ++;
 				}
 				else
 				{
-					m = (char)get_func(frmt[i + 1]);
+					get_func(frmt[i])(args);
 					if (m)
 						count += m(args);
 					else
-						count += _putchar(frmt[i]) + _putchar(frmt[i + 1]);
-					i += 2;
+						count += _putchar(frmt[i]) + _putchar(frmt[i]);
+					i ++;
 				}	
 			}
 			else
 			{
 				count += _putchar(frmt[i]);
+				
 				i++;
 			}
 		}
