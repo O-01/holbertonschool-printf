@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h>
 #include <stdarg.h>
 
 /**
@@ -12,7 +11,7 @@ void c_printer(va_list c)
 {
 	char ch = (char)va_arg(c, int);
 
-	if (ch != NULL)
+	if (ch)
 		_putchar(ch);
 }
 
@@ -44,30 +43,11 @@ void s_printer(va_list s)
  *
  *
  */
-
+/*
 void d_printer(va_list d)
 {
-	int dec = va_arg(d, int);
-
-	if (dec)
-	{
-		if (dec < 0 && dec > -2147483648)
-		{
-			dec = -(dec);
-			_putchar('-');
-		}
-
-		if (dec / 10)
-			d_printer(dec / 10);
-
-		if (dec == -2147483648)
-			_putchar((dec % 10) + 64);
-
-		else
-			_putchar((dec % 10) + '0');
-	}
 }
-
+*/
 /**
  *
  *
@@ -103,3 +83,30 @@ void i_printer(va_list i)
 	}
 }
 */
+
+/**
+ *
+ *
+ *
+ */
+
+void number_pro(int d)
+{
+	if (d)
+	{
+		if (d < 0 && d > -2147483648)
+		{
+			d = -(d);
+			_putchar('-');
+		}
+
+		if (d / 10)
+			number_pro(d / 10);
+
+		if (d == -2147483648)
+			_putchar((d % 10) + 64);
+
+		else
+			_putchar((d % 10) + '0');
+	}
+}
