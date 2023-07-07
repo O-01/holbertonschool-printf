@@ -3,9 +3,9 @@
 #include <stddef.h>
 
 /**
- *
- *
- *
+ * _printf - replica of printf
+ *@frmt: string to print
+ *Return: the chars printed from string
  */
 
 int _printf(const char *frmt, ...)
