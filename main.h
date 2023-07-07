@@ -1,13 +1,17 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+#include <stdarg.h>
+
 struct wave
 {
 	char *spec;
-	void (*func)(void);
+	void (*func)();
 };
 
-int _printf(const char *format, ...);
+typedef struct wave wv;
+
+int _printf(const char *frmt, ...);
 int _putchar(char);
 int (*get_func(char *))(char);
 void c_printer(va_list c);

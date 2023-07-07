@@ -10,7 +10,7 @@
 
 void c_printer(va_list c)
 {
-	char *ch = (char)va_arg(c, int);
+	char ch = (char)va_arg(c, int);
 
 	if (ch != NULL)
 		_putchar(ch);
@@ -29,7 +29,7 @@ void s_printer(va_list s)
 
 	str = va_arg(s, char *);
 
-	if (str != NULL)
+	if (str)
 	{
 		for (; str[x]; x++)
 			;
@@ -47,9 +47,9 @@ void s_printer(va_list s)
 
 void d_printer(va_list d)
 {
-	int *dec = va_arg(d, int);
+	int dec = va_arg(d, int);
 
-	if (dec != NULL)
+	if (dec)
 	{
 		if (dec < 0 && dec > -2147483648)
 		{
@@ -73,12 +73,12 @@ void d_printer(va_list d)
  *
  *
  */
-
+/*
 void i_printer(va_list i)
 {
 	int x = 0;
 
-	if (i != NULL)
+	if (i)
 	{
 		for (; i[x]; x++)
 			;
@@ -102,3 +102,4 @@ void i_printer(va_list i)
 		}
 	}
 }
+*/
