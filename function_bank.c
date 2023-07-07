@@ -45,6 +45,8 @@ int s_printer(va_list s)
 			z++;
 		}
 	}
+
+	return (z);
 }
 
 /**
@@ -58,7 +60,7 @@ int d_printer(va_list d)
         int x = 0;
 
 	if (d)
-		x = number_pro(va_arg(i, int));
+		x = number_pro(va_arg(d, int));
 
         return (x);
 }
