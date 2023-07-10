@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <stddef.h>
 
 /**
  * _printf - replica of printf
@@ -15,6 +11,7 @@ int _printf(const char *fmt, ...)
 	va_list mag;
 	int x, sum = 0;
 	int (*surf)(va_list);
+	char sub = 0;
 
 	if (!fmt)
 		return (-1);
@@ -23,19 +20,22 @@ int _printf(const char *fmt, ...)
 
 	while (fmt && fmt[x])
 	{
-		if (fmt[x] != '%')
+		sub = fmt[x];
+
+		if (sub != '%')
 		{
-			_putchar(fmt[x]);
+			_putchar(sub);
 			sum++;
+			x++;
 		}
 		else
 		{
-			surf = get_func(&fmt[x + 1]);
+			sub = fmt[x + 1];
+			surf = funky(sub, mag);
 			if (!surf)
 				return (-1);
 			sum += surf(mag);
 		}
-		x++;
 	}
 
 	va_end(mag);

@@ -1,9 +1,5 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
-#include <stdarg.h>
-#include <stddef.h>
+
 /**
  * c_printer - supplies char output to _printf upon %c specifier
  * @dude: input char
@@ -28,7 +24,7 @@ int c_printer(va_list dude)
 
 int s_printer(va_list dude)
 {
-	int x, y, sum = 0;
+	int x = 0, y = 0, sum = 0;
 	char *str;
 
 	str = va_arg(dude, char *);

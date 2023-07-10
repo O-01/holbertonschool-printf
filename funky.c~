@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 
 /**
  * get_func - determines function to return based on input x
@@ -9,7 +6,7 @@
  * Return: function corresponding to input x
  */
 
-int (*get_func(const char *z))(va_list)
+int funky(const char z, va_list mag)
 {
 	wv det[] = {
 		{"c", c_printer},
@@ -21,8 +18,8 @@ int (*get_func(const char *z))(va_list)
 	};
 	int x = 0;
 
-	if (z != NULL)
-		for (; det[x].spec != NULL && *(det[x].spec) != *z; x++)
+	if (z)
+		for (; det[x].spec != NULL && *(det[x].spec) != z; x++)
 			;
 
 	return (det[x].func);
