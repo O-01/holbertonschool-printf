@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdarg.h>
-
+#include <stddef.h>
 /**
  * c_printer - supplies char output to _printf upon %c specifier
  * @dude: input char
@@ -41,7 +41,6 @@ int s_printer(va_list dude)
 		for (; y < x; y++, sum++)
 			_putchar(str[y]);
 	}
-
 	return (sum);
 }
 
