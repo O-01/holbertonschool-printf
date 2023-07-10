@@ -1,24 +1,18 @@
 #include "main.h"
 #include <stdarg.h>
-
+#include <stddef.h>
 /**
  * c_printer - supplies char output to _printf upon %c specifier
  * @c: input char
  * Return: void
  */
 
-int c_printer(va_list c)
+int c_printer(va_list args)
 {
-	int x = 0;
-	char ch = (char)va_arg(c, int);
+	int c;
 
-	if (ch)
-	{
-		_putchar(ch);
-		x++;
-	}
-
-	return (x);
+	c = va_arg(args, int);
+	return (_putchar(c));
 }
 
 /**
@@ -27,26 +21,39 @@ int c_printer(va_list c)
  * Return: void
  */
 
-int s_printer(va_list s)
+int s_printer(va_list args)
 {
-	int x, y, z = 0;
+	int i, count = 0;
 	char *str;
 
-	str = va_arg(s, char *);
-
-	if (str)
+	i = 0;
+	str = va_arg(args, char*);
+	if (str == NULL)
+		str = "(null)";
+	while (str[i] != '\0')
 	{
-		for (; str[x]; x++)
-			;
-
-		for (; y < x; y++)
-		{
-			_putchar(str[y]);
-			z++;
-		}
+		_putchar(str[i]);
+		i++;
+		count++;
 	}
+	return (count);
+}
 
-	return (z);
+/**
+ * p_printer - supplies output for _printf upon p specifer
+ * @p: percent
+ * Return:
+ */
+int p_printer(va_list args)
+{
+	char *str;
+
+	str = "%";
+	if (va_arg(args, int) == *str)
+	{	
+		return (*str);
+	}
+		return (*str);
 }
 
 /**
@@ -54,15 +61,35 @@ int s_printer(va_list s)
  * @d: input number
  * Return: void
  */
-
-int d_printer(va_list d)
+int d_printer(va_list args)
 {
-        int x = 0;
 
-	if (d)
-		x = number_pro(va_arg(d, int));
+	unsigned int absolute, aux, countnum, count;
+	int n;
 
-        return (x);
+	count = 0;
+	n = va_arg(args, int);
+		if (n < 0)
+		{
+			absolute = (n * -1);
+			count += _putchar('-');
+		}
+		else
+			absolute = n;
+
+	aux = absolute;
+	countnum = 1;
+	while (aux > 9)
+	{
+		aux /= 10;
+		countnum *= 10;
+	}
+	while (countnum >= 1)
+	{
+		count += _putchar(((absolute / countnum) % 10) + '0');
+		countnum /= 10;
+	}
+	return (count);
 }
 
 /**
@@ -71,14 +98,9 @@ int d_printer(va_list d)
  * Return: void
  */
 
-int i_printer(va_list i)
+int i_printer(va_list args)
 {
-	int x = 0;
-
-	if (i)
-		x = number_pro(va_arg(i, int));
-
-	return (x);
+        return (print_d(args));
 }
 
 /**

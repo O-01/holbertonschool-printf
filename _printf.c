@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
-
+#include <stdio.h>
 /**
  * _printf - replica of printf
  *@frmt: string to print
@@ -12,7 +12,7 @@ int _printf(const char *frmt, ...)
 {
 	va_list args; /*args as variable type for va_list type for va_list to access variable args*/
 	int count = 0, i;
-	void (*m)(va_list);
+	int (*m)(va_list);
 
 	va_start(args, frmt); /*va_start macro initalize args*/
 
@@ -31,7 +31,7 @@ if (frmt) /*checks if format is null*/
 				}
 				else
 				{
-					get_func(*(frmt))(args);
+					m = get_func(frmt[i + 1]);
 					if (m)
 						count += m(args);
 					else

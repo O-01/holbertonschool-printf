@@ -9,7 +9,7 @@
  * Return: function corresponding to input x
  */
 
-int (*get_func(char *x))(va_list)
+int (*get_func(char x))(va_list args)
 {
 	wv det[] = {
 		{"c", c_printer},

@@ -19,9 +19,10 @@ typedef struct wave wv;
 
 int _printf(const char *frmt, ...);
 int _putchar(char);
-int (*get_func(char *))(va_list);
+int (*get_func(char x))(va_list args);
 int c_printer(va_list);
 int s_printer(va_list);
+int p_printer(va_list);
 int d_printer(va_list);
 int i_printer(va_list);
 int number_pro(int);

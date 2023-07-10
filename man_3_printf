@@ -1,0 +1,10 @@
+.\" Manpage for _printf
+.\"
+.TH man 1 "July 10 2023" "1.0" "_printf man page"
+.SH NAME
+._printf
+\- This function produces output based on format
+.SH SYNOPSIS
+#include "main.h"
+
+int _printf(const char *format, ...)
