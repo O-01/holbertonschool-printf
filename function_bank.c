@@ -24,18 +24,15 @@ int c_printer(va_list dude)
 
 int s_printer(va_list dude)
 {
-	int x = 0, y = 0, sum = 0;
+	int x, sum = 0;
 	char *str;
 
 	str = va_arg(dude, char *);
 
 	if (str)
 	{
-		for (; str[x]; x++)
-			;
-
-		for (; y < x; y++, sum++)
-			_putchar(str[y]);
+		for (; str[x]; x++, sum++)
+			_putchar(str[x]);
 	}
 	return (sum);
 }
