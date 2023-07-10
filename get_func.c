@@ -9,20 +9,21 @@
  * Return: function corresponding to input x
  */
 
-int (*get_func(char x))(va_list args)
+int (*get_func(const char *z))(va_list)
 {
 	wv det[] = {
 		{"c", c_printer},
 		{"s", s_printer},
-		{"d", d_printer},
-		{"i", i_printer},
+		{"d", di_printer},
+		{"i", di_printer},
+		{"%", m_printer},
 		{NULL, NULL}
 	};
-	int i = 0;
+	int x = 0;
 
-	if (x)
-		while (det[i].spec && *(det[i].spec) != *x)
-			i++;
+	if (z != NULL)
+		for (; det[x].spec != NULL && *(det[x].spec) != *z; x++)
+			;
 
-	return (det[i].func);
+	return (det[x].func);
 }

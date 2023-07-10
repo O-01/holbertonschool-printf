@@ -1,141 +1,90 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include <stdarg.h>
 #include <stddef.h>
 /**
  * c_printer - supplies char output to _printf upon %c specifier
- * @c: input char
+ * @dude: input char
  * Return: void
  */
 
-int c_printer(va_list args)
+int c_printer(va_list dude)
 {
-	int c;
+	char ch = (char)va_arg(dude, int);
 
-	c = va_arg(args, int);
-	return (_putchar(c));
+	if (ch)
+		_putchar(ch);
+
+	return (1);
 }
 
 /**
  * s_printer - supplies string output to _printf upon %s specifier
- * @s: input string
- * Return: void
+ * @dude: input string
+ * Return: sum of characters from string printed
  */
 
-int s_printer(va_list args)
+int s_printer(va_list dude)
 {
-	int i, count = 0;
+	int x, y, sum = 0;
 	char *str;
 
-	i = 0;
-	str = va_arg(args, char*);
-	if (str == NULL)
-		str = "(null)";
-	while (str[i] != '\0')
+	str = va_arg(dude, char *);
+
+	if (str)
 	{
-		_putchar(str[i]);
-		i++;
-		count++;
+		for (; str[x]; x++)
+			;
+
+		for (; y < x; y++, sum++)
+			_putchar(str[y]);
 	}
-	return (count);
+	return (sum);
 }
 
 /**
- * p_printer - supplies output for _printf upon p specifer
- * @p: percent
- * Return:
+ * di_printer - supplies output for _printf upon d specifier
+ * @dude: input number
+ * Return: sum of numbers printed
  */
-int p_printer(va_list args)
-{
-	char *str;
 
-	str = "%";
-	if (va_arg(args, int) == *str)
-	{	
-		return (*str);
+int di_printer(va_list dude)
+{
+        mint x = va_arg(dude, int);
+	int wax, sum = 0;
+
+	wax = x;
+
+	if (wax < 0)
+	{
+		_putchar('-');
+		x = -(x);
+		x = wax;
+		sum++;
 	}
-		return (*str);
+
+	for (; x > 9; sum++)
+		x /= 10;
+
+	number_pro(x);
+
+        return (sum);
 }
 
 /**
- * d_printer - supplies output for _printf upon d specifier
- * @d: input number
- * Return: void
- */
-int d_printer(va_list args)
-{
-
-	unsigned int absolute, aux, countnum, count;
-	int n;
-
-	count = 0;
-	n = va_arg(args, int);
-		if (n < 0)
-		{
-			absolute = (n * -1);
-			count += _putchar('-');
-		}
-		else
-			absolute = n;
-
-	aux = absolute;
-	countnum = 1;
-	while (aux > 9)
-	{
-		aux /= 10;
-		countnum *= 10;
-	}
-	while (countnum >= 1)
-	{
-		count += _putchar(((absolute / countnum) % 10) + '0');
-		countnum /= 10;
-	}
-	return (count);
-}
-
-/**
- * i_printer - supplies output for _printf upon i specifier
- * @i: input number
+ * m_printer - prints percent/modulo
+ * @m: input percent sign/modulo
  * Return: void
  */
 
-int i_printer(va_list args)
+int m_printer(va_list dude)
 {
-        return (print_d(args));
-}
+	char mdl = (char)va_arg(dude, int);
 
-/**
- * number_pro - helper function to print # input recursively using _putchar
- * @d: input number
- * Return: void
- */
+	if (mdl)
+		_putchar('%');
 
-int number_pro(int d)
-{
-	int x = 0;
-
-	if (d)
-	{
-		if (d < 0 && d > -2147483648)
-		{
-			d = -(d);
-			_putchar('-');
-			x++;
-		}
-
-		for (; d / 10; d /= 10)
-		{
-			if (d == -2147483648)
-			{
-				_putchar((d % 10) + 64);
-				x++;
-			}
-			else
-			{
-				_putchar((d % 10) + '0');
-				x++;
-			}
-		}
-	}
-
-	return (x);
+	return (1);
 }
