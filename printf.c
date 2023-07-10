@@ -29,8 +29,7 @@ int _printf(const char *format, ...)
 			x++;
 		}
 		else
-	{
-		
+		{
 			sub = format[x + 1];
 
 			surf = funky(sub, mag);
@@ -40,7 +39,6 @@ int _printf(const char *format, ...)
 			x += 2;
 		}
 	}
-
 	va_end(mag);
 	return (sum);
 }
