@@ -1,119 +1,91 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include <stdarg.h>
 
 /**
  * c_printer - supplies char output to _printf upon %c specifier
- * @c: input char
+ * @dude: input char
  * Return: void
  */
 
-int c_printer(va_list c)
+int c_printer(va_list dude)
 {
-	int x = 0;
-	char ch = (char)va_arg(c, int);
+	char ch = (char)va_arg(dude, int);
 
 	if (ch)
-	{
 		_putchar(ch);
-		x++;
-	}
 
-	return (x);
+	return (1);
 }
 
 /**
  * s_printer - supplies string output to _printf upon %s specifier
- * @s: input string
- * Return: void
+ * @dude: input string
+ * Return: sum of characters from string printed
  */
 
-int s_printer(va_list s)
+int s_printer(va_list dude)
 {
-	int x, y, z = 0;
+	int x, y, sum = 0;
 	char *str;
 
-	str = va_arg(s, char *);
+	str = va_arg(dude, char *);
 
 	if (str)
 	{
 		for (; str[x]; x++)
 			;
 
-		for (; y < x; y++)
-		{
+		for (; y < x; y++, sum++)
 			_putchar(str[y]);
-			z++;
-		}
 	}
 
-	return (z);
+	return (sum);
 }
 
 /**
- * d_printer - supplies output for _printf upon d specifier
- * @d: input number
- * Return: void
+ * di_printer - supplies output for _printf upon d specifier
+ * @dude: input number
+ * Return: sum of numbers printed
  */
 
-int d_printer(va_list d)
+int di_printer(va_list dude)
 {
-        int x = 0;
+        mint x = va_arg(dude, int);
+	int wax, sum = 0;
 
-	if (d)
-		x = number_pro(va_arg(d, int));
+	wax = x;
 
-        return (x);
-}
-
-/**
- * i_printer - supplies output for _printf upon i specifier
- * @i: input number
- * Return: void
- */
-
-int i_printer(va_list i)
-{
-	int x = 0;
-
-	if (i)
-		x = number_pro(va_arg(i, int));
-
-	return (x);
-}
-
-/**
- * number_pro - helper function to print # input recursively using _putchar
- * @d: input number
- * Return: void
- */
-
-int number_pro(int d)
-{
-	int x = 0;
-
-	if (d)
+	if (wax < 0)
 	{
-		if (d < 0 && d > -2147483648)
-		{
-			d = -(d);
-			_putchar('-');
-			x++;
-		}
-
-		for (; d / 10; d /= 10)
-		{
-			if (d == -2147483648)
-			{
-				_putchar((d % 10) + 64);
-				x++;
-			}
-			else
-			{
-				_putchar((d % 10) + '0');
-				x++;
-			}
-		}
+		_putchar('-');
+		x = -(x);
+		x = wax;
+		sum++;
 	}
 
-	return (x);
+	for (; x > 9; sum++)
+		x /= 10;
+
+	number_pro(x);
+
+        return (sum);
+}
+
+/**
+ * m_printer - prints percent/modulo
+ * @m: input percent sign/modulo
+ * Return: void
+ */
+
+int m_printer(va_list dude)
+{
+	char mdl = (char)va_arg(dude, int);
+
+	if (mdl)
+		_putchar('%');
+
+	return (1);
 }

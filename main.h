@@ -2,6 +2,12 @@
 #define _MAIN_H_
 
 #include <stdarg.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <unistd.h>
 
 /**
  * struct wave - struct called wave
@@ -16,14 +22,15 @@ struct wave
 };
 
 typedef struct wave wv;
+typedef unsigned int mint;
 
 int _printf(const char *frmt, ...);
 int _putchar(char);
-int (*get_func(char *))(va_list);
+int (*get_func(const char *))(va_list);
 int c_printer(va_list);
 int s_printer(va_list);
-int d_printer(va_list);
-int i_printer(va_list);
-int number_pro(int);
+int di_printer(va_list);
+int m_printer(va_list);
+void number_pro(int);
 
 #endif
