@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * get_func - determines function to return based on input x
- * @x: input compared against entries in struct det
+ * funky - determines function to return based on input x
+ * @z: input compared against entries in struct det
+ * @mag:
  * Return: function corresponding to input x
  */
 

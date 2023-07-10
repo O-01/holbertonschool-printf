@@ -6,21 +6,21 @@
  *Return: the chars printed from string
  */
 
-int _printf(const char *fmt, ...)
+int _printf(const char *format, ...)
 {
 	va_list mag;
 	int x, sum = 0;
 	int surf;
 	char sub = 0;
 
-	if (!fmt)
+	if (!format)
 		return (-1);
 
-	va_start(mag, fmt);
+	va_start(mag, format);
 
-	while (fmt && fmt[x])
+	while (format && format[x])
 	{
-		sub = fmt[x];
+		sub = format[x];
 
 		if (sub != '%')
 		{
@@ -29,12 +29,15 @@ int _printf(const char *fmt, ...)
 			x++;
 		}
 		else
-		{
-			sub = fmt[x + 1];
+	{
+		
+			sub = format[x + 1];
+
 			surf = funky(sub, mag);
 			if (!surf)
 				return (-1);
 			sum += surf;
+			x += 2;
 		}
 	}
 

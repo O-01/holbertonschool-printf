@@ -68,7 +68,7 @@ int di_printer(va_list dude)
 
 /**
  * m_printer - prints percent/modulo
- * @m: input percent sign/modulo
+ * @dude: input percent sign/modulo
  * Return: void
  */
 

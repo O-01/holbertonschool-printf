@@ -6,7 +6,7 @@
 
 /**
  * number_pro - helper function to print # input using _putchar
- * @d: input number
+ * @dude: input number
  * Return: void
  */
 
