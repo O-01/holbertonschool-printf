@@ -10,7 +10,7 @@ int _printf(const char *fmt, ...)
 {
 	va_list mag;
 	int x, sum = 0;
-	int (*surf)(va_list);
+	int surf;
 	char sub = 0;
 
 	if (!fmt)
@@ -34,7 +34,7 @@ int _printf(const char *fmt, ...)
 			surf = funky(sub, mag);
 			if (!surf)
 				return (-1);
-			sum += surf(mag);
+			sum += surf;
 		}
 	}
 

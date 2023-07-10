@@ -6,7 +6,7 @@
  * Return: function corresponding to input x
  */
 
-int funky(const char z, va_list mag)
+int funky(char z, va_list mag)
 {
 	wv det[] = {
 		{"c", c_printer},
@@ -16,12 +16,12 @@ int funky(const char z, va_list mag)
 		{"%", m_printer},
 		{NULL, NULL}
 	};
-	int yank = va_arg(mag, int);
+	/* int yank = va_arg(mag, int); */
 	int x = 0;
 
 	if (z)
 		for (; det[x].spec != NULL && *(det[x].spec) != z; x++)
 			;
 
-	return (det[x].func);
+	return (det[x].func(mag));
 }

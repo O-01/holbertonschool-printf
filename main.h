@@ -26,7 +26,7 @@ typedef unsigned int mint;
 
 int _printf(const char *frmt, ...);
 int _putchar(char);
-int funky(const char, va_list);
+int funky(char, va_list);
 int c_printer(va_list);
 int s_printer(va_list);
 int di_printer(va_list);
