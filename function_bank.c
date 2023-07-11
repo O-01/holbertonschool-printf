@@ -51,6 +51,7 @@ int di_printer(va_list dude)
 	if (x < 0)
 	{
 		_putchar('-'), x *= -1;
+		wax = x;
 		sum++;
 	}
 
