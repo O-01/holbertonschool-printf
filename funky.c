@@ -2,12 +2,12 @@
 
 /**
  * funky - determines function to return based on input x
- * @z: input compared against entries in struct det
- * @mag:
- * Return: function corresponding to input x
+ * @verify: input compared against entries in struct det
+ * @dude: va_list input
+ * Return: length of verify
  */
 
-int funky(char z, va_list mag)
+int funky(char verify, va_list dude)
 {
 	wv det[] = {
 		{"c", c_printer},
@@ -17,12 +17,25 @@ int funky(char z, va_list mag)
 		{"%", m_printer},
 		{NULL, NULL}
 	};
-	/* int yank = va_arg(mag, int); */
-	int x = 0;
+	mint x, sum = 0;
 
-	if (z)
-		for (; det[x].spec != NULL && *(det[x].spec) != z; x++)
-			;
+	while (det[x].spec)
+	{
+		if (*(det[x].spec) == verify)
+		{
+			sum += det[x].func(dude);
+			return (sum);
+		}
 
-	return (det[x].func(mag));
+		x++;
+
+		if (x > 4)
+		{
+			_putchar('%'), sum++;
+			_putchar(verify), sum++;
+			return (sum);
+		}
+	}
+
+	return (sum);
 }

@@ -8,10 +8,9 @@
 
 int c_printer(va_list dude)
 {
-	char ch = (char)va_arg(dude, int);
+	int ch = va_arg(dude, int);
 
-	if (ch)
-		_putchar(ch);
+	_putchar(ch);
 
 	return (1);
 }
@@ -24,17 +23,16 @@ int c_printer(va_list dude)
 
 int s_printer(va_list dude)
 {
-	int x, sum = 0;
-	char *str;
+	int x = 0;
+	char *str = va_arg(dude, char *);
 
-	str = va_arg(dude, char *);
+	if (!str)
+		str = "(null)";
 
-	if (str)
-	{
-		for (; str[x]; x++, sum++)
-			_putchar(str[x]);
-	}
-	return (sum);
+	while (str[x])
+		_putchar(str[x]), x++;
+
+	return (x);
 }
 
 /**
@@ -45,39 +43,35 @@ int s_printer(va_list dude)
 
 int di_printer(va_list dude)
 {
-        mint x = va_arg(dude, int);
-	int wax, sum = 0;
+        int x = va_arg(dude, int);
+	mint wax = 0, sum = 1;
 
 	wax = x;
 
-	if (wax < 0)
+	if (x < 0)
 	{
-		_putchar('-');
-		x = -(x);
+		_putchar('-'), x = -(x);
 		x = wax;
 		sum++;
 	}
 
-	for (; x > 9; sum++)
-		x /= 10;
+	while (x > 9)
+		x /= 10, sum++;
 
-	number_pro(x);
+	number_pro(wax);
 
         return (sum);
 }
 
 /**
- * m_printer - prints percent/modulo
- * @dude: input percent sign/modulo
+ * m_helper - helper function to print % input using _putchar
+ * @dude: input
  * Return: void
  */
 
 int m_printer(va_list dude)
 {
-	char mdl = (char)va_arg(dude, int);
-
-	if (mdl)
+	if (dude)
 		_putchar('%');
-
 	return (1);
 }

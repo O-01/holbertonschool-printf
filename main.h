@@ -8,6 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
  * struct wave - struct called wave
@@ -15,13 +16,12 @@
  * @func: function corresponding to spec
  */
 
-struct wave
+typedef struct wave
 {
 	char *spec;
 	int (*func)(va_list);
-};
+} wv;
 
-typedef struct wave wv;
 typedef unsigned int mint;
 
 int _printf(const char *frmt, ...);
