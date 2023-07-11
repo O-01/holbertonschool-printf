@@ -13,5 +13,5 @@ void number_pro(int dude)
 	if (x / 10)
 		number_pro(x / 10);
 
-	_putchar(x % 10 + 64);
+	_putchar(x % 10 + '0');
 }
