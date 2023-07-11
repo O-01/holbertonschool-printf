@@ -43,7 +43,7 @@ int s_printer(va_list dude)
 
 int di_printer(va_list dude)
 {
-        int x = va_arg(dude, int);
+	int x = va_arg(dude, int);
 	mint wax = 0, sum = 1;
 
 	wax = x;
@@ -60,11 +60,11 @@ int di_printer(va_list dude)
 
 	number_pro(wax);
 
-        return (sum);
+	return (sum);
 }
 
 /**
- * m_helper - helper function to print % input using _putchar
+ * m_printer - helper function to print % input using _putchar
  * @dude: input
  * Return: void
  */

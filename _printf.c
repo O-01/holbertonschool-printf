@@ -6,7 +6,7 @@
  *Return: the chars printed from string
  */
 
-int _printf(const char * format, ...)
+int _printf(const char *format, ...)
 {
 	va_list mag;
 	char sub;
@@ -17,7 +17,7 @@ int _printf(const char * format, ...)
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 
-        while (format[x])
+	while (format[x])
 	{
 		if (format[x] == '%')
 		{

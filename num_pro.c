@@ -8,10 +8,10 @@
 
 void number_pro(int dude)
 {
-        mint x = dude;
+	mint x = dude;
 
-        if (x / 10)
-                number_pro(x / 10);
+	if (x / 10)
+		number_pro(x / 10);
 
-        _putchar(x % 10 + '0');
+	_putchar(x % 10 + '0');
 }
