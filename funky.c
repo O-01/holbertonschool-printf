@@ -17,7 +17,7 @@ int funky(char verify, va_list dude)
 		{"%", m_printer},
 		{NULL, NULL}
 	};
-	mint x, sum = 0;
+	int x, sum = 0;
 
 	while (det[x].spec)
 	{
@@ -29,7 +29,7 @@ int funky(char verify, va_list dude)
 
 		x++;
 
-		if (x > 5)
+		if (x == 5)
 		{
 			_putchar('%'), sum++;
 			_putchar(verify), sum++;

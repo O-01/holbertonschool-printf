@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	va_list mag;
 	char sub;
-	mint x, sum = 0;
+	int x, sum = 0;
 
 	va_start(mag, format);
 

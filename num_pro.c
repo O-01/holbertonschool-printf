@@ -8,7 +8,7 @@
 
 void number_pro(int dude)
 {
-	mint x = dude;
+	int x = dude;
 
 	if (x / 10)
 		number_pro(x / 10);

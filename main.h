@@ -22,8 +22,6 @@ typedef struct wave
 	int (*func)(va_list);
 } wv;
 
-typedef unsigned int mint;
-
 int _printf(const char *frmt, ...);
 int _putchar(char);
 int funky(char, va_list);

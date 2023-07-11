@@ -44,7 +44,7 @@ int s_printer(va_list dude)
 int di_printer(va_list dude)
 {
 	int x = va_arg(dude, int);
-	mint wax = 0, sum = 1;
+	unsigned int wax = 0, sum = 1;
 
 	wax = x;
 
