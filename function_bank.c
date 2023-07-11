@@ -48,7 +48,17 @@ int di_printer(va_list dude)
 
 	wax = x;
 
-	if (x < 0)
+	if (x == INT_MIN)
+	{
+		_putchar('-'), sum++;
+		_putchar('2'), sum++;
+
+		x %= 2000000000;
+		x *= -1;
+		wax = x;
+	}
+
+	else if (x < 0)
 	{
 		_putchar('-'), x *= -1;
 		sum++;
