@@ -24,7 +24,9 @@ Our custom printf function handles the following conversion specifiers: <br>
 <li> %: for printing percentages </li> <br>
 <li> d, i: for printing signed and unsigned integers </li> <br> </ul>
 
-**Flowchart**
+**Flowchart of _printf proccess**
+
+![image](https://github.com/O-01/holbertonschool-printf/assets/121834519/b231936b-57f4-463c-8fc2-8545ae60d585)
 
 <hr>
 
