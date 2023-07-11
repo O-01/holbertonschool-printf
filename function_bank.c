@@ -29,8 +29,8 @@ int s_printer(va_list dude)
 	if (!str)
 		str = "(null)";
 
-	for (; str[x]; x++)
-		_putchar(str[x]);
+	while (str[x])
+		_putchar(str[x]), x++;
 
 	return (x);
 }
@@ -44,14 +44,13 @@ int s_printer(va_list dude)
 int di_printer(va_list dude)
 {
         int x = va_arg(dude, int);
-	unsigned int wax = 0, sum = 1;
+	mint wax = 0, sum = 1;
 
 	wax = x;
 
 	if (x < 0)
 	{
-		_putchar('-');
-		x *= -1;
+		_putchar('-'), x = -(x);
 		x = wax;
 		sum++;
 	}
@@ -64,20 +63,15 @@ int di_printer(va_list dude)
         return (sum);
 }
 
-#include "main.h"
-
 /**
- * number_pro - helper function to print # input using _putchar
- * @dude: input number
+ * m_helper - helper function to print % input using _putchar
+ * @dude: input
  * Return: void
  */
 
-void number_pro(int dude)
+int m_printer(va_list dude)
 {
-        unsigned int x = dude;
-
-        if (x / 10)
-                number_pro(x / 10);
-
-        _putchar(x % 10 + '0');
+	if (dude)
+		_putchar('%');
+	return (1);
 }

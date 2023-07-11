@@ -2,33 +2,27 @@
 
 /**
  * _printf - replica of printf
- *@frmt: string to print
+ *@format: string to print
  *Return: the chars printed from string
  */
 
-int _printf(const char * const format, ...)
+int _printf(const char * format, ...)
 {
 	va_list mag;
 	char sub;
-	int x, sum = 0;
+	mint x, sum = 0;
 
 	va_start(mag, format);
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 
-        while (format && format[x])
+        while (format[x])
 	{
-		sub = format[x];
-
-		if (sub == '%')
+		if (format[x] == '%')
 		{
 			sub = format[x + 1];
-
-			if (!sub)
-				return (-1);
-
-			sum += funky(sub, mag);
+			sum += funky(sub, mag), x++;
 		}
 
 		else
@@ -36,7 +30,6 @@ int _printf(const char * const format, ...)
 
 		x++;
 	}
-
 	va_end(mag);
 	return (sum);
 }

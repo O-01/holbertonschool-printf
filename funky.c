@@ -14,38 +14,27 @@ int funky(char verify, va_list dude)
 		{"s", s_printer},
 		{"d", di_printer},
 		{"i", di_printer},
-		{"%", NULL},
+		{"%", m_printer},
 		{NULL, NULL}
 	};
-	int x, sum, pip = 0;
+	mint x, sum = 0;
 
-	while (det[x].spec != NULL)
+	while (det[x].spec)
 	{
 		if (*(det[x].spec) == verify)
 		{
-			if (x != 4)
-			{
-				sum += det[x].func(dude);
-				pip = 1;
-			}
-
-			else
-			{
-				_putchar('%');
-				sum++;
-				pip = 1;
-			}
+			sum += det[x].func(dude);
+			return (sum);
 		}
 
-		else
-			x++;
-	}
+		x++;
 
-	if (pip == 0)
-	{
-		_putchar('%');
-		_putchar(verify);
-		sum += 2;
+		if (x > 4)
+		{
+			_putchar('%'), sum++;
+			_putchar(verify), sum++;
+			return (sum);
+		}
 	}
 
 	return (sum);

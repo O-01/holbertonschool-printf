@@ -19,15 +19,18 @@
 typedef struct wave
 {
 	char *spec;
-	int (*func)();
+	int (*func)(va_list);
 } wv;
 
-int _printf(const char * const format, ...);
+typedef unsigned int mint;
+
+int _printf(const char *frmt, ...);
 int _putchar(char);
 int funky(char, va_list);
 int c_printer(va_list);
 int s_printer(va_list);
 int di_printer(va_list);
+int m_printer(va_list);
 void number_pro(int);
 
 #endif
