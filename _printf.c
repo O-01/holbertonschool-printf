@@ -6,23 +6,29 @@
  *Return: the chars printed from string
  */
 
-int _printf(const char * format, ...)
+int _printf(const char * const format, ...)
 {
 	va_list mag;
 	char sub;
-	mint x, sum = 0;
+	int x, sum = 0;
 
 	va_start(mag, format);
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 
-        while (format[x])
+        while (format && format[x])
 	{
-		if (format[x] == '%')
+		sub = format[x];
+
+		if (sub == '%')
 		{
 			sub = format[x + 1];
-			sum += funky(sub, mag), x++;
+
+			if (!sub)
+				return (-1);
+
+			sum += funky(sub, mag);
 		}
 
 		else
@@ -30,6 +36,7 @@ int _printf(const char * format, ...)
 
 		x++;
 	}
+
 	va_end(mag);
 	return (sum);
 }
