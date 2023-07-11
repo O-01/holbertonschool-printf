@@ -29,7 +29,7 @@ int funky(char verify, va_list dude)
 
 		x++;
 
-		if (x > 4)
+		if (x > 5)
 		{
 			_putchar('%'), sum++;
 			_putchar(verify), sum++;
