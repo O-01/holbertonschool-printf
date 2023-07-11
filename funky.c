@@ -17,7 +17,7 @@ int funky(char verify, va_list dude)
 		{"%", m_printer},
 		{NULL, NULL}
 	};
-	int x, sum = 0;
+	int x = 0, sum = 0;
 
 	while (det[x].spec)
 	{
