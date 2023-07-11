@@ -19,11 +19,11 @@ int funky(char verify, va_list dude)
 	};
 	int x, sum, pip = 0;
 
-	while (det[x].spec)
+	while (det[x].spec != NULL)
 	{
 		if (*(det[x].spec) == verify)
 		{
-			if (det[x].spec[0] != '%')
+			if (x != 4)
 			{
 				sum += det[x].func(dude);
 				pip = 1;
@@ -41,7 +41,7 @@ int funky(char verify, va_list dude)
 			x++;
 	}
 
-	if (pip != 1)
+	if (pip == 0)
 	{
 		_putchar('%');
 		_putchar(verify);
