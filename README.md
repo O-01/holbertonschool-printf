@@ -30,7 +30,7 @@ Our custom printf function handles the following conversion specifiers: <br>
 ![image](https://github.com/O-01/holbertonschool-printf/assets/121834519/b231936b-57f4-463c-8fc2-8545ae60d585)
 
 **How the function works**
-*Va_list* variable *mag* is declared. Variable is used to access the variable arguments passed to the function. If the *format* string is *NULL* or if only consists of a single '%' character, function returns -1.
+*Va_list* variable *mag* is declared. Variable is used to access the variable arguments passed to the function. If the *format* string is *NULL* or if only consists of a single '%' character, function returns -1. Code iterates through each character of *format* string. If current character is '%', it checks the next character to determine the specifier. Based on specifier, it calls functions "*c_printer, s_printer, di_printer, m_printer*" to process and print the variable argument. The return value of these functions is added to the *sum* variable, which keeps track of total number of characters printed.
 
 
 <hr>
