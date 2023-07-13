@@ -29,6 +29,10 @@ Our custom printf function handles the following conversion specifiers: <br>
 
 ![image](https://github.com/O-01/holbertonschool-printf/assets/121834519/b231936b-57f4-463c-8fc2-8545ae60d585)
 
+**How the function works**
+*Va_list* variable *mag* is declared. Variable is used to access the variable arguments passed to the function. If the *format* string is *NULL* or if only consists of a single '%' character, function returns -1.
+
+
 <hr>
 
 **Requirements**
