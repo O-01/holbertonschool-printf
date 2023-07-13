@@ -8,11 +8,11 @@
 
 int _printf(const char *format, ...)
 {
-	/* declare/initialize va_list variable as list of arguments */
+	/* declare va_list variable (list of passed arguments) */
 	va_list mag;
-	/* declare/initialize holder/representative variable */
+	/* declare storage variable */
 	char sub;
-	/* incrementers to deal process input & output, respectively */
+	/* iteration vars to process input & output, respectively */
 	int x = 0, sum = 0;
 	/* begin processing arguments in va_list following format */
 	va_start(mag, format);

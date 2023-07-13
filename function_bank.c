@@ -26,7 +26,7 @@ int c_printer(va_list dude)
 
 int s_printer(va_list dude)
 {
-	/* declare/initialize increment x to 0 & str char* arg in va_list */
+	/* declare/initialize iterator x to 0 & str char* arg in va_list */
 	int x = 0;
 	char *str = va_arg(dude, char *);
 

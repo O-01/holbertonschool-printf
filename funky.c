@@ -9,7 +9,7 @@
 
 int funky(char verify, va_list dude)
 {
-	/* declare/initialize struct vector, incrementer, & write count var */
+	/* declare/initialize struct vector, iteration, & write count var */
 	wv det[] = {
 		{"c", c_printer},
 		{"s", s_printer},
@@ -25,17 +25,17 @@ int funky(char verify, va_list dude)
 		/* if input matches spec */
 		if (*(det[x].spec) == verify)
 		{
-			/* add write count returned by matching func call */
+			/* add write total to return of matching func call */
 			sum += det[x].func(dude);
 			/* return number of writes to stdout */
 			return (sum);
 		}
 		/* advance x (loop compares spec vs input) */
 		x++;
-		/* if input is %, match */
+		/* if input is % (match), print another % */
 		if (x == 5)
 		{
-			/* write % to stdout, add 1 to writes to stdout */
+			/* write % to stdout, add 1 write count to stdout */
 			_putchar('%'), sum++;
 			/* write actual input to stdout, add 1 to writes */
 			_putchar(verify), sum++;
