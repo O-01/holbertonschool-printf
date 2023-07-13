@@ -8,10 +8,13 @@
 
 int c_printer(va_list dude)
 {
+	/* declares/initializes ch to next int argument in va_list */
 	int ch = va_arg(dude, int);
 
+	/* writes ch to stdout */
 	_putchar(ch);
 
+	/* return number of writes to stdout */
 	return (1);
 }
 
@@ -23,15 +26,19 @@ int c_printer(va_list dude)
 
 int s_printer(va_list dude)
 {
+	/* declare/initialize increment x to 0 & str char* arg in va_list */
 	int x = 0;
 	char *str = va_arg(dude, char *);
 
+	/* if str is NULL/false, return (null) */
 	if (!str)
 		str = "(null)";
 
+	/* until false, str written to stdout by iterating through str */
 	while (str[x])
 		_putchar(str[x]), x++;
 
+	/* return number of writes (iterations of x) to stdout */
 	return (x);
 }
 
@@ -43,33 +50,44 @@ int s_printer(va_list dude)
 
 int di_printer(va_list dude)
 {
+	/* declares/initializes x to va_list int arg & 2 uint variables */
 	int x = va_arg(dude, int);
 	unsigned int wax = 0, sum = 1;
-
+	/* stores int input into unsigned int variable */
 	wax = x;
-
+	/* conditional upon INT_MIN input */
 	if (x == INT_MIN)
 	{
+		/* write - (negative) to stdout, add 1 write to stdout */
 		_putchar('-'), sum++;
+		/* write 2 to stdout, add 1 write count to stdout */
 		_putchar('2'), sum++;
-
+		/* grabs remainder of INT_MIN divided by 2 bil (-147683649) */
+		/* cuts leading 2 off remaining digits to write */
 		x %= 2000000000;
+		/* makes x into its absolute value for further # writes  */
 		x *= -1;
+		/* store x (int) value into uint storage variable */
 		wax = x;
 	}
-
+	/* if x is negative, yet not INT_MIN */
 	else if (x < 0)
 	{
+		/* write - (negative) to stdout, make x into its abs value */
 		_putchar('-'), x *= -1;
+		/* store x (int) value into uint storage variable */
 		wax = x;
+		/* add 1 write count to stdout */
 		sum++;
 	}
-
+	/* until x is a 1 digit int */
 	while (x > 9)
+		/* detect each digit place from front of x by dividing by 10 */
+		/* add 1 write count to stdout */
 		x /= 10, sum++;
-
+	/* write stored number recursively by digit to stdout */
 	number_pro(wax);
-
+	/* return number of writes to stdout */
 	return (sum);
 }
 
@@ -81,7 +99,10 @@ int di_printer(va_list dude)
 
 int m_printer(va_list dude)
 {
+	/* if input va_list is not NULL/false, write % once to stdout */
 	if (dude)
 		_putchar('%');
+
+	/* return number of writes to stdout */
 	return (1);
 }

@@ -11,5 +11,6 @@
 
 int _putchar(char c)
 {
+	/* returns 1 byte of buffer c & outputs that to 1 (stdout) */
 	return (write(1, &c, 1));
 }
