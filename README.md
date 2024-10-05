@@ -1,5 +1,5 @@
 # _printf
-
+![holb](https://github.com/user-attachments/assets/4e43ffe1-36d8-4356-b14d-6bdfbc754236)
 #
 ### Description
 - The _printf function is used to print output on the screen.
@@ -29,7 +29,7 @@ If current character is not `%`, it is printed using `_putchar` and character is
 [Sammy Ansari](https://github.com/O-01)  
 [Tiffany Walker](https://github.com/tiffanywalker22)
 #
-
+![holb](https://github.com/user-attachments/assets/4e43ffe1-36d8-4356-b14d-6bdfbc754236)
 #
 # C - printf
 ## Background Context
