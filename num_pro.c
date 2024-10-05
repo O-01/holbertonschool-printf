@@ -5,16 +5,13 @@
  * @dude: input number
  * Return: void
  */
-
 void number_pro(int dude)
 {
-	/* initializes int variable to copy input variable for processing */
-	int x = dude;
 	/* as long as input value is divisible by 10 */
-	if (x / 10)
+	if (dude / 10)
 		/* call this function recursively */
-		number_pro(x / 10);
+		number_pro(dude / 10);
 	/* write tenths digit to stdout for each recursion */
 	/* 0 added to result in order to write the digit properly */
-	_putchar(x % 10 + '0');
+	_putchar(dude % 10 + '0');
 }

@@ -5,7 +5,6 @@
  * @dude: input char
  * Return: void
  */
-
 int c_printer(va_list dude)
 {
 	/* declares/initializes ch to next int argument in va_list */
@@ -13,7 +12,6 @@ int c_printer(va_list dude)
 
 	/* writes ch to stdout */
 	_putchar(ch);
-
 	/* return number of writes to stdout */
 	return (1);
 }
@@ -23,23 +21,20 @@ int c_printer(va_list dude)
  * @dude: input string
  * Return: sum of characters from string printed
  */
-
 int s_printer(va_list dude)
 {
 	/* declare/initialize iterator x to 0 & str char* arg in va_list */
-	int x = 0;
+	int iter = 0;
 	char *str = va_arg(dude, char *);
 
 	/* if str is NULL/false, return (null) */
 	if (!str)
 		str = "(null)";
-
 	/* until false, str written to stdout by iterating through str */
-	while (str[x])
-		_putchar(str[x]), x++;
-
-	/* return number of writes (iterations of x) to stdout */
-	return (x);
+	while (str[iter])
+		_putchar(str[iter++]);
+	/* return number of writes (iterations of iter) to stdout */
+	return (iter);
 }
 
 /**
@@ -47,14 +42,13 @@ int s_printer(va_list dude)
  * @dude: input number
  * Return: sum of numbers printed
  */
-
 int di_printer(va_list dude)
 {
 	/* declares/initializes x to va_list int arg & 2 uint variables */
 	int x = va_arg(dude, int);
-	unsigned int wax = 0, sum = 1;
+	unsigned int uint = 0, sum = 1;
 	/* stores int input into unsigned int variable */
-	wax = x;
+	uint = x;
 	/* conditional upon INT_MIN input */
 	if (x == INT_MIN)
 	{
@@ -68,7 +62,7 @@ int di_printer(va_list dude)
 		/* makes x into its absolute value for further # writes  */
 		x *= -1;
 		/* store x (int) value into uint storage variable */
-		wax = x;
+		uint = x;
 	}
 	/* if x is negative, yet not INT_MIN */
 	else if (x < 0)
@@ -76,7 +70,7 @@ int di_printer(va_list dude)
 		/* write - (negative) to stdout, make x into its abs value */
 		_putchar('-'), x *= -1;
 		/* store x (int) value into uint storage variable */
-		wax = x;
+		uint = x;
 		/* add 1 write count to stdout */
 		sum++;
 	}
@@ -86,7 +80,7 @@ int di_printer(va_list dude)
 		/* add 1 write count to stdout */
 		x /= 10, sum++;
 	/* write stored number recursively by digit to stdout */
-	number_pro(wax);
+	number_pro(uint);
 	/* return number of writes to stdout */
 	return (sum);
 }
@@ -96,13 +90,11 @@ int di_printer(va_list dude)
  * @dude: input
  * Return: void
  */
-
 int m_printer(va_list dude)
 {
 	/* if input va_list is not NULL/false, write % once to stdout */
 	if (dude)
 		_putchar('%');
-
 	/* return number of writes to stdout */
 	return (1);
 }

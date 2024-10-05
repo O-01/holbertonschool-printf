@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * funky - determines function to return based on input x
+ * funky - determines function to return based on input iter
  * @verify: input compared against entries in struct det
  * @dude: va_list input
  * Return: length of verify
  */
-
 int funky(char verify, va_list dude)
 {
 	/* declare/initialize struct vector, iteration, & write count var */
@@ -18,22 +17,16 @@ int funky(char verify, va_list dude)
 		{"%", m_printer},
 		{NULL, NULL}
 	};
-	int x = 0, sum = 0;
+	int iter = 0, sum = 0;
 	/* until spec becomes NULL (input checked against spec & no match) */
-	while (det[x].spec)
+	while (det[iter].spec)
 	{
 		/* if input matches spec */
-		if (*(det[x].spec) == verify)
-		{
-			/* add write total to return of matching func call */
-			sum += det[x].func(dude);
-			/* return number of writes to stdout */
-			return (sum);
-		}
-		/* advance x (loop compares spec vs input) */
-		x++;
+		if (*(det[iter].spec) == verify)
+			/* add write total to return of matching call and return */
+			return (sum += det[iter].func(dude));
 		/* if input is % (match), print another % */
-		if (x == 5)
+		if (++iter == 5)
 		{
 			/* write % to stdout, add 1 write count to stdout */
 			_putchar('%'), sum++;

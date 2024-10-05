@@ -1,5 +1,6 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
+
 /* header includes */
 #include <stdarg.h>
 #include <stdio.h>
@@ -15,12 +16,12 @@
  * @spec: valid input specifier
  * @func: function corresponding to spec
  */
-
 typedef struct wave
 {
 	char *spec;
 	int (*func)(va_list);
 } wv;
+
 /* function prototypes */
 int _printf(const char *frmt, ...);
 int _putchar(char);
